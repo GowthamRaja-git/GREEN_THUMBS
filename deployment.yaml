@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+ kind: Deployment
+ metadata: 
+    name: mysafe
+ spec:
+    replicates: 5
+    selector:
+       matchLabels:
+        app: GREEN THUMBS
+    template:
+       metadata:
+         labels:
+            app: GREEN THUMBS
+       spec:
+         containers:
+         - name: rapidapi
+          image: jr.icr.io/myplant/GREEN THUMBS
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 5000
